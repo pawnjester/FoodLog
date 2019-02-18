@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Mind Coeliac</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="username_hint">username</string>
+    <string name="email_hint">email</string>
+    <string name="password_hint">password</string>
+    <string name="register_text">Register</string>
+    <string name="create_an_account_text">Create Account</string>
+    <string name="i_have_an_account_text">I have an account</string>
+    <string name="sign_in_text">Sign In</string>
+    <string name="login_text">Login</string>
+    <string name="dont_have_account_text">DONT HAVE ACCOUNT?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feeling_today_text">How are you feeling today?</string>
+    <string name="enter_what_you_ate_text">Enter what you ate:</string>
+    <string name="enter_your_breakfast_text">Enter your breakfast</string>
+    <string name="enter_your_lunch_text">Enter your Lunch</string>
+    <string name="enter_your_dinner_text">Enter your dinner</string>
+    <string name="diary_text">Diary</string>
+    <string name="no_records_text">You have not recorded anything</string>
+    <string name="photo_diary_text">Photo Diary</string>
+    <string name="upload_image_text">Upload Image</string>
+    <string name="choose_image_text">Choose Image</string>
+    <string name="image_text">image</string>
+    <string name="logout_text">Logout</string>
+    <string name="search_diary_logs_text">Search diary Logs</string>
+    <string name="sorry_there_are_no_records_on_this_date">Sorry, there are no records on this date</string>
+    <string name="search_logs">Search Logs</string>
+</resources>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "688492942331",
+    "firebase_url": "https://foodlog-55f21.firebaseio.com",
+    "project_id": "foodlog-55f21",
+    "storage_bucket": "foodlog-55f21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688492942331:android:4cc194f3d595133f",
+        "android_client_info": {
+          "package_name": "com.andela.logfooddiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688492942331-trgt8rq36b57ghu2d1nndniv27jdcomt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andela.logfooddiary",
+            "certificate_hash": "c58fd0254f24113ce93395f396236ad14657d003"
+          }
+        },
+        {
+          "client_id": "688492942331-ebs33hflgsgms0mp77ga6mkouah02b88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHwGIzzl2XP1rYDxblKpjXPmVRf4KffUI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688492942331-ebs33hflgsgms0mp77ga6mkouah02b88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
