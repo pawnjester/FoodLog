@@ -8,4 +8,7 @@ data class Food (
         var dinner: String? = "",
         var mood: String? = "",
         var date: String? = ""
-)
+){
+    constructor() : this("", "", "","", "", "")
+
+}
