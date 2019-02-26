@@ -3,6 +3,7 @@ package com.andela.logfooddiary.ui.FoodDiary
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.andela.logfooddiary.R
 import com.andela.logfooddiary.data.Food
 import com.andela.logfooddiary.utils.InjectorUtils
 import com.andela.logfooddiary.viewmodel.DiaryViewmodel
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_food_diary.*
 
 
@@ -23,10 +25,12 @@ class FoodDiaryFragment : Fragment() {
 
     private lateinit var viewmodel: DiaryViewmodel
     private var mood: String? = null
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +60,8 @@ class FoodDiaryFragment : Fragment() {
         val breakfast = breakfast_text.text.toString()
         val lunch = lunch_text.text.toString()
         val dinner = dinner_text.text.toString()
+        val user = auth.currentUser
+        Log.e("curentUser++", user?.email.toString())
 
         if (breakfast.isNotEmpty()
                 && lunch.isNotEmpty()
@@ -66,7 +72,8 @@ class FoodDiaryFragment : Fragment() {
                     lunch = lunch,
                     dinner = dinner,
                     mood = mood,
-                    date = viewmodel.foodRecord)
+                    date = viewmodel.foodRecord,
+                    user = user?.email)
             viewmodel.addFood(food)
 
             //this is for moving to another fragment from a fragment

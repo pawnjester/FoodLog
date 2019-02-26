@@ -7,8 +7,9 @@ data class Food (
         var lunch: String? = "",
         var dinner: String? = "",
         var mood: String? = "",
-        var date: String? = ""
+        var date: String? = "",
+        var user: String? = ""
 ){
-    constructor() : this("", "", "","", "", "")
+    constructor() : this("", "", "","", "", "", "")
 
 }
