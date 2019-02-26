@@ -12,6 +12,7 @@ import com.andela.logfooddiary.R
 import com.andela.logfooddiary.data.Food
 import com.andela.logfooddiary.utils.InjectorUtils
 import com.andela.logfooddiary.viewmodel.DiaryViewmodel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_display_log.*
 
@@ -26,6 +27,10 @@ class DisplayLogFragment : Fragment() {
 
     private lateinit var viewmodel: DiaryViewmodel
 
+    private lateinit var logs: ArrayList<Food>
+
+    private lateinit var auth: FirebaseAuth
+
     private val listAdapter by lazy {
         DisplayLogAdapter()
     }
@@ -35,6 +40,8 @@ class DisplayLogFragment : Fragment() {
         initViewModel()
         val database = FirebaseDatabase.getInstance()
         databaseReference = database.reference
+        logs = ArrayList()
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +63,7 @@ class DisplayLogFragment : Fragment() {
                     false)
             adapter = listAdapter
         }
-        getItems()
+        getItems(auth.currentUser?.email ?: "")
     }
 
     private fun initViewModel() {
@@ -65,17 +72,19 @@ class DisplayLogFragment : Fragment() {
                 .of(activity!!, factory).get(DiaryViewmodel::class.java)
     }
 
-    private fun getItems() {
-        databaseReference.addValueEventListener(object: ValueEventListener {
+    private fun getItems(email: String) {
+        val query = databaseReference.orderByChild("user").equalTo(email)
+        query.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(activity!!, databaseError.message, Toast.LENGTH_SHORT).show()
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val food = dataSnapshot.children.mapNotNull {
-                    it.getValue<Food>(Food::class.java)
+                for (snap in dataSnapshot.children){
+                    val food = snap.getValue(Food::class.java)
+                    logs.add(food ?: Food())
+                    listAdapter.updateList(logs)
                 }
-                    listAdapter.updateList(food)
             }
 
         })
